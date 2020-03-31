@@ -1,3 +1,4 @@
 {
-  "mongoURI": "mongodb+srv://somil112:Somil@112@cluster0-vdvjt.gcp.mongodb.net/test?retryWrites=true&w=majority"
+  "mongoURI": "mongodb+srv://somil112:Somil@112@cluster0-vdvjt.gcp.mongodb.net/test?retryWrites=true&w=majority",
+  "jwtSecret": "mysecret"
 }
