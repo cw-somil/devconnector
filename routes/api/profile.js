@@ -9,7 +9,7 @@ const User = require("../../models/User")
 router.get("/me", auth, async (req, res) => {
   try {
     const profile = await Profile.findOne({
-      user: req.user.id
+      user: req.user.id,
     }).populate("user", ["name", "avatar"])
 
     if (!profile) {
@@ -25,17 +25,7 @@ router.get("/me", auth, async (req, res) => {
 // Create Profile
 router.post(
   "/",
-  [
-    auth,
-    [
-      check("status")
-        .not()
-        .isEmpty(),
-      check("skills")
-        .not()
-        .isEmpty()
-    ]
-  ],
+  [auth, [check("status").not().isEmpty(), check("skills").not().isEmpty()]],
   async (req, res) => {
     const errors = validationResult(req)
     if (!errors.isEmpty()) {
@@ -54,7 +44,7 @@ router.post(
       facebook,
       twitter,
       instagram,
-      linkedin
+      linkedin,
     } = req.body
 
     const profileFields = {}
@@ -66,7 +56,7 @@ router.post(
     if (status) profileFields.status = status
     if (githubusername) profileFields.githubusername = githubusername
     if (skills) {
-      profileFields.skills = skills.split(",").map(skill => skill.trim())
+      profileFields.skills = skills.split(",").map((skill) => skill.trim())
     }
 
     profileFields.social = {}
@@ -142,20 +132,14 @@ router.put(
   [
     auth,
     [
-      check("title", "Title is Required")
-        .not()
-        .isEmpty(),
-      check("company", "Company is Required")
-        .not()
-        .isEmpty(),
-      check("from", "From Date is Required")
-        .not()
-        .isEmpty()
-    ]
+      check("title", "Title is Required").not().isEmpty(),
+      check("company", "Company is Required").not().isEmpty(),
+      check("from", "From Date is Required").not().isEmpty(),
+    ],
   ],
   async (req, res) => {
     const errors = validationResult(req)
-    if (errors) {
+    if (!errors.isEmpty()) {
       return res.status(400).json({ errors: errors.array() })
     }
     const {
@@ -165,7 +149,7 @@ router.put(
       from,
       to,
       current,
-      description
+      description,
     } = req.body
 
     const newExp = {
@@ -175,16 +159,34 @@ router.put(
       from,
       to,
       current,
-      description
+      description,
     }
     try {
       const profile = await Profile.findOne({ user: req.user.id })
       profile.experience.unshift(newExp)
       await profile.save()
+      res.json(profile)
     } catch (err) {
       console.error(err.message)
       res.status(500).send("Server Error")
     }
   }
 )
+
+// Delete Exp
+// Private
+router.delete("/experience/:exp_id", auth, async (req, res) => {
+  try {
+    const profile = await Profile.findOne({ user: req.user.id })
+    const removeIndex = profile.experience
+      .map((item) => item.id)
+      .indexOf(req.params.id)
+    profile.experience.splice(removeIndex, 1)
+    await profile.save()
+    res.json(profile)
+  } catch (err) {
+    console.error(err.message)
+    res.status(500).send("Server Error")
+  }
+})
 module.exports = router
