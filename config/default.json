@@ -1,4 +1,6 @@
 {
   "mongoURI": "mongodb+srv://somil112:Somil@112@cluster0-vdvjt.gcp.mongodb.net/test?retryWrites=true&w=majority",
-  "jwtSecret": "mysecret"
+  "jwtSecret": "mysecret",
+  "githubClientId": "51bf68f90ced3d234c0d",
+  "githubSecret": "0c31927e2d075924cc24b282df26e5edb76e23c4"
 }
