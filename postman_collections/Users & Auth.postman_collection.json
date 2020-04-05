@@ -1,0 +1,99 @@
+{
+	"info": {
+		"_postman_id": "562df103-d8a8-45a1-847a-63164dcdfb01",
+		"name": "Users & Auth",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Register User",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"name\":\"Somil1\",\n\t\"email\":\"abc123@gmail.com\",\n\t\"password\":\"somil1234\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:4999/api/users",
+					"host": [
+						"localhost"
+					],
+					"port": "4999",
+					"path": [
+						"api",
+						"users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Auth",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "x-auth-token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNWU4MzY3ODM1NGUwZmEzNTBjZDI4ODEzIn0sImlhdCI6MTU4NTY3MDAxOSwiZXhwIjoxNTg2MDMwMDE5fQ.ZkISfav8W94kG9Pt2EiOE_z1VmYYdLc_DeTU-oTVvM0",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "localhost:4999/api/auth",
+					"host": [
+						"localhost"
+					],
+					"port": "4999",
+					"path": [
+						"api",
+						"auth"
+					]
+				},
+				"description": "Authorize User and get the User Details\n"
+			},
+			"response": []
+		},
+		{
+			"name": "Log In User",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"email\":\"abc123@gmail.com\",\n\t\"password\":\"Somil112\"\n}"
+				},
+				"url": {
+					"raw": "localhost:4999/api/auth",
+					"host": [
+						"localhost"
+					],
+					"port": "4999",
+					"path": [
+						"api",
+						"auth"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}

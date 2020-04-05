@@ -1,0 +1,280 @@
+{
+	"info": {
+		"_postman_id": "eb585542-4633-40d4-9abd-4e6b6e8f73f5",
+		"name": "Profiles",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Get Logged In users Profile",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "x-auth-token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNWU4MzY3ODM1NGUwZmEzNTBjZDI4ODEzIn0sImlhdCI6MTU4NTY3MDAxOSwiZXhwIjoxNTg2MDMwMDE5fQ.ZkISfav8W94kG9Pt2EiOE_z1VmYYdLc_DeTU-oTVvM0",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "localhost:4999/api/profile/me",
+					"host": [
+						"localhost"
+					],
+					"port": "4999",
+					"path": [
+						"api",
+						"profile",
+						"me"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Profile for Logged in User",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "x-auth-token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNWU4N2M1MTQwNTQwMjUxYTM0NDFiMTc2In0sImlhdCI6MTU4NTk1NjExNiwiZXhwIjoxNTg2MzE2MTE2fQ.AVBlqT82f7qs1NqRGOL4Yu8sgsr-dZ3a4PQnC9U-c4w",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"company\": \"TheLabs\",\n\t\"status\":\"Developer\",\n\t\"skills\":\"Tensorflow, Keras , Python\",\n\t\"githubusername\":\"somil112\",\n\t\"instagram\":\"https://www.instagram.com/\"\n}"
+				},
+				"url": {
+					"raw": "localhost:4999/api/profile",
+					"host": [
+						"localhost"
+					],
+					"port": "4999",
+					"path": [
+						"api",
+						"profile"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get All Profiles",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:4999/api/profile",
+					"host": [
+						"localhost"
+					],
+					"port": "4999",
+					"path": [
+						"api",
+						"profile"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Profile by User ID",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:4999/api/profile/user/5e83c1aac9e1113880f00799",
+					"host": [
+						"localhost"
+					],
+					"port": "4999",
+					"path": [
+						"api",
+						"profile",
+						"user",
+						"5e83c1aac9e1113880f00799"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete User",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "x-auth-token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNWU4M2NkNGEwZGRkMWMxYWE4MjliY2ZlIn0sImlhdCI6MTU4NTY5NjA3NCwiZXhwIjoxNTg2MDU2MDc0fQ.yMOsjk-4jLbOZdagUxSvZTGka8cnm44w3mRK7bUWB0w",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "localhost:4999/api/profile",
+					"host": [
+						"localhost"
+					],
+					"port": "4999",
+					"path": [
+						"api",
+						"profile"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add Experience",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "x-auth-token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNWU4N2M1MTQwNTQwMjUxYTM0NDFiMTc2In0sImlhdCI6MTU4NTk1NjExNiwiZXhwIjoxNTg2MzE2MTE2fQ.AVBlqT82f7qs1NqRGOL4Yu8sgsr-dZ3a4PQnC9U-c4w",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"title\":\"Data sadsdasd Scientist at TheLabs\",\n\t\"company\": \"ThasdaeLabs\",\n\t\"from\":\"10-2-1998\"\n}"
+				},
+				"url": {
+					"raw": "localhost:4999/api/profile/experience",
+					"host": [
+						"localhost"
+					],
+					"port": "4999",
+					"path": [
+						"api",
+						"profile",
+						"experience"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add Education",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "x-auth-token",
+						"type": "text",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNWU4N2M1MTQwNTQwMjUxYTM0NDFiMTc2In0sImlhdCI6MTU4NTk1NjExNiwiZXhwIjoxNTg2MzE2MTE2fQ.AVBlqT82f7qs1NqRGOL4Yu8sgsr-dZ3a4PQnC9U-c4w"
+					},
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"school\":\"DJ Sanghvi\",\n\t\"degree\": \"BE\",\n\t\"fieldofstudy\":\"Computer Engineering\",\n\t\"from\":\"10-2-1998\"\n}"
+				},
+				"url": {
+					"raw": "localhost:4999/api/profile/education",
+					"host": [
+						"localhost"
+					],
+					"port": "4999",
+					"path": [
+						"api",
+						"profile",
+						"education"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Experience",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "x-auth-token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNWU4N2M1MTQwNTQwMjUxYTM0NDFiMTc2In0sImlhdCI6MTU4NTk1NjExNiwiZXhwIjoxNTg2MzE2MTE2fQ.AVBlqT82f7qs1NqRGOL4Yu8sgsr-dZ3a4PQnC9U-c4w",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "localhost:4999/api/profile/experience/5e87c6260540251a3441b178",
+					"host": [
+						"localhost"
+					],
+					"port": "4999",
+					"path": [
+						"api",
+						"profile",
+						"experience",
+						"5e87c6260540251a3441b178"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Education",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "x-auth-token",
+						"type": "text",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNWU4N2M1MTQwNTQwMjUxYTM0NDFiMTc2In0sImlhdCI6MTU4NTk1NjExNiwiZXhwIjoxNTg2MzE2MTE2fQ.AVBlqT82f7qs1NqRGOL4Yu8sgsr-dZ3a4PQnC9U-c4w"
+					}
+				],
+				"url": {
+					"raw": "localhost:4999/api/profile/education/e87cb50db30692fb4665172",
+					"host": [
+						"localhost"
+					],
+					"port": "4999",
+					"path": [
+						"api",
+						"profile",
+						"education",
+						"e87cb50db30692fb4665172"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Github Repos",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:4999/api/profile/github/somil112",
+					"host": [
+						"localhost"
+					],
+					"port": "4999",
+					"path": [
+						"api",
+						"profile",
+						"github",
+						"somil112"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
