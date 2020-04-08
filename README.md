@@ -22,5 +22,5 @@ Remove all the user sensitive data. For example, the Config file and Tokens mayb
 
 ### Shortcuts
 
-- Use **"rafc"** in VsCode to get the component template made for you!
+- Use **"rafce"** in VsCode to get the component template made for you!
 - In order to replace **class** with **className**, highlight the class word and press **Ctrl+D** to highlight all one by one and the rename it all at once!
