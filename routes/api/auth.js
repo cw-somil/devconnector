@@ -21,7 +21,7 @@ router.post(
   "/",
   [
     check("email", "Please enter valid Email").isEmail(),
-    check("password", "Password is required").exists()
+    check("password", "Password is required").exists(),
   ],
   async (req, res) => {
     const errors = validationResult(req)
@@ -38,14 +38,17 @@ router.post(
           .json({ errors: [{ msg: "Invalid Credentials" }] })
       }
 
-      const isMatch = bcrypt.compare(password, user.password)
+      const isMatch = await bcrypt.compare(password, user.password)
+
       if (!isMatch) {
-        return res.status(400).json({ msg: "Invalid Credentials" })
+        return res
+          .status(400)
+          .json({ errors: [{ msg: "Invalid Credentials" }] })
       }
       const payload = {
         user: {
-          id: user.id
-        }
+          id: user.id,
+        },
       }
       jwt.sign(
         payload,
